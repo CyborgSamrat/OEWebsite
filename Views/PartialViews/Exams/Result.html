@@ -1,0 +1,42 @@
+﻿<div ng-controller="ResultController">
+
+   <h3 align="center" width="20%" class="alert-success">Correct Answer: {{numberOfRightAnswer}}</h3>
+    <h3 align="center" width="20%" class="alert-danger">Wrong Answer :{{numberOfWrongAnswer}}</h3>
+
+    <h2 align="center">{{exam.Title}}</h2>
+    <table class="table">
+        <tr>
+            <td>Time: {{exam.AllocatedTimeInMinute}}</td>
+            <td>Full Marks: {{exam.FullMarks}}</td>
+            <td>Subject: {{exam.CourseName}}</td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
+            <td></td>
+            <td><strong><i>Question</i></strong></td>
+            <td><i>Option A</i></td>
+            <td><i>Option B</i></td>
+            <td><i>Option C</i></td>
+            <td><i>Option D</i></td>
+            <td><i>Given Answer</i></td>
+            <td><i>Correct Answer</i></td>
+
+        </tr>
+        <tr ng-repeat="question in exam.McqQuestions">
+            <td ng-show="correctAnsweredQuestion[$index]" class="glyphicon glyphicon-ok"></td>
+            <td ng-show="!correctAnsweredQuestion[$index]" class="glyphicon glyphicon-remove"></td>
+            <td><strong>{{$index + 1}}. {{question.QuestionText}}</strong></td>
+            <td>{{question.OptionA}}</td>
+            <td>{{question.OptionB}}</td>
+            <td>{{question.OptionC}}</td>
+            <td>{{question.OptionD}}</td>
+            <td>{{givenAnswer[$index]}}</td>
+            <td>{{correctAnswer[$index]}}</td>
+        </tr>
+
+
+
+    </table>
+    <div ui-sref="Exams" class="btn btn-default"><a href="">Back</a></div>
+</div>

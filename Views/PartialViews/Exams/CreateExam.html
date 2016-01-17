@@ -1,0 +1,78 @@
+﻿<div ng-controller="ExamController">
+    <table class="table">
+        <tr>
+            <td>Exam Title</td>
+            <td>
+                <input type="text" ng-model="title" />
+            </td>
+            <td>Course Name</td>
+            <td>
+                <input type="text" ng-model="courseName" />
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>Difficulty Level</td>
+            <td>
+                <select ng-model="difficultyLevel">
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </td>
+
+            <td>Type</td>
+            <td>
+                <select ng-model="type">
+                    <option value="MCQ">MCQ</option>
+                    <option value="FillingGaps">Filling Gaps</option>
+                    <option value="MCQ+FillingGaps">MCQ and Filling Gaps</option>
+
+                </select>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Exam Time</td>
+            <td>
+                <div>
+                    <input type='text' ng-model="examTime" />
+                </div>
+
+            </td>
+
+            <td>Allocated Time in Minutes</td>
+            <td>
+                <input type="number" ng-model="allocatedTimeInMinute" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Number of Questions</td>
+            <td>
+                <input type="number" ng-model="numberOfQuestions" />
+            </td>
+
+
+            <td>Full Marks</td>
+            <td>
+                <input type="number" ng-model="fullMarks" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" ui-sref="Exams" class="btn btn-default" value="save" ng-click="AddExam()" />
+            </td>
+
+            <td>
+                <input type="button" class="btn btn-default" value="Clear Fields" ng-click="CancelCreatingExam()" />
+            </td>
+            <td>
+                <input ui-sref="Exams" type="button" class="btn btn-default" value="Back" ng-click="CancelCreatingExam()" />
+            </td>
+        </tr>
+    </table>
+</div>

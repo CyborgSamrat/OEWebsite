@@ -1,0 +1,32 @@
+﻿<div ng-controller="ExamDetailsController">
+
+    <h2>{{mcqExamDetails.Title}}</h2>
+    <table class="table">
+        <tr>
+            <td>Time: {{mcqExamDetails.AllocatedTimeInMinute}}</td>
+            <td>Full Marks: {{mcqExamDetails.FullMarks}}</td>
+            <td>Subject: {{mcqExamDetails.CourseName}}</td>
+        </tr>
+    </table>
+        <table class="table" >
+            <tr>
+                <td><strong><i>Question</i></strong></td>
+                <td><i>Option A</i></td>
+                <td><i>Option B</i></td>
+                <td><i>Option C</i></td>
+                <td><i>Option D</i></td>
+
+            </tr>
+            <tr ng-repeat="question in mcqExamDetails.McqQuestions">
+                <td><strong>{{$index + 1}}. {{question.QuestionText}}</strong></td>
+                <td>{{question.OptionA}}</td>
+                <td>{{question.OptionB}}</td>
+                <td>{{question.OptionC}}</td>
+                <td>{{question.OptionD}}</td>
+            </tr>
+           
+            
+        </table>
+   
+    <div ui-sref="Exams" class="btn btn-default" ><a href="">Back</a></div>
+</div>

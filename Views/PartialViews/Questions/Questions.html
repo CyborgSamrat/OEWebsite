@@ -1,0 +1,40 @@
+﻿ <div ng-controller="QuestionController" ng-init="counter">
+
+        <div ng-show="divQuestionList">
+            <table class="table">
+                <thead>MCQ Questions</thead>
+                <tr ng-repeat="question in mcqQuestions">
+                    <td>{{$index + 1}}. {{question.QuestionText}}</td>
+                    <td ng-click="SetQuestionToBeEdited(question)" ui-sref="EditQuestion" class="btn btn-default"> Edit</td>
+                    <td ng-click="CreateDeleteQuestionDiv(question)" class="btn btn-default"> Delete</td>
+                    <td ng-click="ViewQuestionDetailsDiv(question)" class="btn btn-default"> View Details</td>
+                </tr>
+            </table>
+
+            <div ng-show="divQuestionDetails">
+                <table class="table">
+
+
+                    <thead><strong>{{questionToViewDetails.QuestionText}}</strong></thead>
+                    <tr>
+                        <td>A. {{questionToViewDetails.OptionA}}</td>
+                        <td>B. {{questionToViewDetails.OptionB}}</td>
+                    </tr>
+                    <tr>
+                        <td>C. {{questionToViewDetails.OptionC}}</td>
+                        <td>D. {{questionToViewDetails.OptionD}}</td>
+                    </tr>
+                    <tr>
+                        <td>Correct Answer: {{questionToViewDetails.CorrectAnswer}}</td>
+                        <td><div ng-click="HideQuestionDetailsDiv()" class="btn btn-default"><a href="">Back</a></div></td>
+                    </tr>
+                </table>
+                
+            </div>
+            <div ng-show="divDeleteQuestion" class="alert-danger">
+                <h4>{{questionToBeDeleted.QuestionText}}</h4>
+                <input type="button" class="btn-danger" value="Confirm Delete" ng-click="DeleteQuestion(questionToBeDeleted.McqQuestionId)" /><span ng-click="HideDeleteQuestionDiv()" class="btn btn-default"><a href="">Cancel</a></span>
+            </div>
+        </div>
+        <div ng-show="divQuestionList" ui-sref="CreateQuestion" class="btn btn-default" ng-click="HideList()"><a href="">Create Question</a></div>
+    </div>

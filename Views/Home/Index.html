@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="OnlineExam">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+
+    <script src="../../Scripts/angular.js"></script>
+    <script src="../../Scripts/angular-ui-router.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/OnlineExam.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Controllers/QuestionController.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Controllers/EditQuestionController.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Controllers/ExamDetailsController.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Controllers/EditExamController.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Controllers/TakeExamController.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Controllers/ResultController.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Controllers/TestResultController.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Services/QuestionService.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Controllers/ExamController.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Services/ExamService.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Services/ResultService.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Directives/CountdownTimer.js"></script>
+    <script src="../../Scripts/OnlineExamScripts/Directives/ProgressBar.js"></script>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body style ="margin-left:5%">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav">
+            <li ui-sref="Main" ><a href="#">Home <span class="sr-only">(current)</span></a></li>
+            <li ui-sref="Questions"><a href="#">Questions</a></li>
+            <li ui-sref="Exams"><a href="#">Exams</a></li>
+            <li ui-sref="Results"><a href="#">Results</a></li>
+        </ul>
+
+    </div>
+    <br /><br /><br /><br />
+    <div data-ui-view=""></div>
+</body>
+</html>

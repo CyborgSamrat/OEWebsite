@@ -1,0 +1,26 @@
+﻿<div ng-controller="TestResultController">
+
+    <table class="table">
+        <tr>
+            <td><strong><i>Exam</i></strong></td>
+            <td><i>Participator</i></td>
+            <td><i>Date and Time</i></td>
+            <td><i>Total Questions</i></td>
+            <td><i>Right Answer</i></td>
+            <td><i>Wrong Answer</i></td>
+
+        </tr>
+        <tr ng-repeat="result in results">
+            <td><strong>{{$index + 1}}. {{result.Exam}}</strong></td>
+            <td>{{result.Participator}}</td>
+            <td>{{result.Time}}</td>
+            <td>{{result.NumberOfQuestions}}</td>
+            <td>{{result.NumberOfRightAnswer}}</td>
+            <td>{{result.NumberOfWrongAnswer}}</td>
+        </tr>
+
+
+
+    </table>
+    <div ui-sref="Main" class="btn btn-default"><a href="">Back</a></div>
+</div>

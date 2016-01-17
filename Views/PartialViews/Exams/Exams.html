@@ -1,0 +1,36 @@
+﻿<div ng-controller="ExamController" >
+
+    <div>
+        <table class="table">
+            <thead>MCQ Exams</thead>
+            <tr ng-repeat="exam in mcqExams">
+                <td>{{$index + 1}}. {{exam.Title}}</td>
+                <td ui-sref="EditExam" ng-click="SetExamToBeEdited(exam)" class="btn btn-default"> Edit</td>
+                <td ng-click="DeleteExamDiv(exam.McqExamId, exam.Title)" class="btn btn-default"> Delete</td>
+                <td ui-sref="ExamDetails" ng-click="SetViewDetails(exam)" class="btn btn-default"> View Details</td>
+                <td  ng-click="SetExamToBeTaken(exam)" class="btn btn-default alert-success"> Take Exam</td>
+            </tr>
+        </table>
+        </div>
+    <div ng-show="deleteExamDiv" class="alert-danger">
+        <h4>{{examToBeDeletedTitle}}</h4>
+        <input  ui-sref="Exams"type="button" class="btn-danger"  value="Confirm Delete" ng-click="DeleteExam(examToBeDeletedId)" /><span ng-click="HideDeleteExamDiv()" class="btn btn-default"><a href="">Cancel</a></span>
+    </div>
+
+    <div ng-show="takeExamDiv" class="alert-warning">
+        <h2>{{examToBeTakenTitle}}</h2>
+        <table class="table">
+            <tr>
+                <td>Time: {{examToBeTakenTime}} Minutes</td>
+                <td>Full Marks: {{examToBeTakenFullMarks}}</td>
+                <td>Course: {{examToBeTakenCourseName}}</td>
+            </tr>
+        </table>
+        
+            Enter Your Name: <input type="text" ng-model="articipator"/>
+        
+        <div ui-sref="TakeExam" ng-click="StartExam(participator)" class="btn btn-default btn-danger"> Start Exam!</div>
+
+    </div>
+    <div ui-sref="CreateExam" class="btn btn-default" ng-click="HideList()"><a href="">Create Exam</a></div>
+</div>

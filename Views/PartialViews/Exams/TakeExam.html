@@ -1,0 +1,40 @@
+﻿<div ng-controller="TakeExamController">
+    <progressbar progress="progress"></progressbar>
+
+    <h1>Time Left: {{minutes}} Minutes {{seconds}} Seconds</h1>
+   <div>
+       <h2 align="center">{{examToBeTaken.Title}}</h2>
+       <table class="table">
+           <tr>
+               <td>Time: {{examToBeTaken.AllocatedTimeInMinute}}</td>
+               <td>Full Marks: {{examToBeTaken.FullMarks}}</td>
+               <td>Subject: {{examToBeTaken.CourseName}}</td>
+           </tr>
+       </table>
+       <table class="table table-hover">
+           <thead class="thead-inverse">
+               <tr>
+                   <th><strong><i>Question</i></strong></th>
+                   <th><i>Option A</i></th>
+                   <th><i>Option B</i></th>
+                   <th><i>Option C</i></th>
+                   <th><i>Option D</i></th>
+
+               </tr>
+           </thead>
+
+           <tr ng-repeat="question in examToBeTaken.McqQuestions">
+               <td><strong>{{$index + 1}}. {{question.QuestionText}}</strong></td>
+               <td><input type="checkbox" ng-click="setAnswer(0, $index)" ng-model="givenAnswer[$index][0]" />{{question.OptionA}} </td>
+               <td><input type="checkbox" ng-click="setAnswer(1, $index)" ng-model="givenAnswer[$index][1]" />{{question.OptionB}}</td>
+               <td><input type="checkbox" ng-click="setAnswer(2, $index)" ng-model="givenAnswer[$index][2]" />{{question.OptionC}}</td>
+               <td><input type="checkbox" ng-click="setAnswer(3, $index)" ng-model="givenAnswer[$index][3]" />{{question.OptionD}}</td>
+           </tr>
+
+
+       </table>
+
+   </div>
+    <div ui-sref="Exams" class="btn btn-default"><a href="">Cancel</a></div>
+    <span ui-sref="Result" ng-click="SubmitAnswer()" class="btn btn-default"><a href="">Submit</a></span>
+</div>
